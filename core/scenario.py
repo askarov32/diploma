@@ -26,6 +26,6 @@ class Scenario:
         temporal = (1 - 2*(math.pi*f0*tau)**2) * torch.exp(-(math.pi*f0*tau)**2)
 
         direction = torch.tensor(mech["vector"]["value"], device=xyzt.device)
-        amplitude = mech["amplitude"]
+        amplitude = float(mech["amplitude"])
 
         return amplitude * spatial * temporal * direction

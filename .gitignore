@@ -15,7 +15,6 @@ ENV/
 .ipynb_checkpoints/
 *.log
 checkpoints/
-*.pt
 *.pth
 .DS_Store
 *.tmp

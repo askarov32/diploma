@@ -81,11 +81,11 @@ initial_conditions:
   T: 293.15
 sampling:
   interior:
-    n: 20000
+    n: 5000
   boundary:
-    n: 4000
+    n: 1000
   initial:
-    n: 4000
+    n: 1000
   sensors:
     enabled: true
     n_receivers: 12
@@ -116,4 +116,4 @@ outputs:
   run_dir: runs/demo
   save_every: 2000
   eval_every: 100
-  run_dir_resolved: runs/demo/20260219-000110
+  run_dir_resolved: runs\demo\20260219-004646

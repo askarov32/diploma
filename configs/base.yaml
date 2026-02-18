@@ -73,11 +73,11 @@ initial_conditions:
 
 sampling:
   interior:
-    n: 20000
+    n: 5000
   boundary:
-    n: 4000
+    n: 1000
   initial:
-    n: 4000
+    n: 1000
   sensors:
     enabled: true
     n_receivers: 12

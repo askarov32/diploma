@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pinn-te"
+version = "0.1.0"
+description = "Physics-Informed Neural Networks for thermoelastic wave propagation and directional prediction in geological media"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Academic use" }
+authors = [
+  { name = "Askarov Insar" }
+]
+keywords = ["PINN", "thermoelasticity", "geophysics", "waves", "inverse-problems"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: Other/Proprietary License",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Physics",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+
+dependencies = [
+  "numpy>=1.24",
+  "pyyaml>=6.0.1",
+  "pydantic>=2.6",
+  "rich>=13.7",
+  "tqdm>=4.66",
+  "matplotlib>=3.8",
+  "scipy>=1.10"
+]
+
+[project.optional-dependencies]
+# Выберите ровно одну "платформу" torch при установке (см. README).
+cpu = ["torch>=2.2"]
+cuda = ["torch>=2.2"]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.3",
+  "mypy>=1.8",
+  "types-PyYAML>=6.0.12.20240311"
+]
+
+[project.scripts]
+pinn-te-train = "pinn_te.cli:train_entry"
+pinn-te-eval-direction = "pinn_te.cli:eval_direction_entry"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["pinn_te*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+strict_optional = true

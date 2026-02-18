@@ -1,0 +1,70 @@
+materials:
+  Granite:
+    rho_g_cm3: [2.60, 2.70]
+    Vp_km_s: [5.5, 6.2]
+    Vs_km_s: [3.2, 3.6]
+    pt: [0.34, 0.57]
+    pe: null
+
+  Granodiorite:
+    rho_g_cm3: [2.77, 2.82]
+    Vp_km_s: [5.8, 6.4]
+    Vs_km_s: [3.3, 3.7]
+    pt: null
+    pe: null
+
+  Basalt:
+    rho_g_cm3: [2.90, 3.10]
+    Vp_km_s: [6.3, 6.8]
+    Vs_km_s: [3.5, 3.9]
+    pt: [0.03, 0.35]
+    pe: null
+
+  Diabase:
+    rho_g_cm3: [2.90, 3.05]
+    Vp_km_s: [6.2, 6.7]
+    Vs_km_s: [3.4, 3.8]
+    pt: null
+    pe: null
+
+  Gabbro:
+    rho_g_cm3: [2.95, 3.20]
+    Vp_km_s: [6.7, 7.2]
+    Vs_km_s: [3.6, 4.0]
+    pt: [0.42, 0.45]
+    pe: null
+
+  Sandstone:
+    rho_g_cm3: [2.65, 2.80]
+    Vp_km_s: [4.5, 5.5]
+    Vs_km_s: [2.5, 3.2]
+    pt: [0.14, 0.49]
+    pe: [0.12, 0.41]
+
+  Limestone:
+    rho_g_cm3: [2.60, 2.75]
+    Vp_km_s: [4.8, 6.0]
+    Vs_km_s: [2.6, 3.4]
+    pt: [0.07, 0.56]
+    pe: [0.00, 0.36]
+
+  Marble:
+    rho_g_cm3: [2.65, 2.80]
+    Vp_km_s: [5.8, 6.5]
+    Vs_km_s: [3.2, 3.7]
+    pt: null
+    pe: null
+
+  Shale:
+    rho_g_cm3: [2.70, 2.90]
+    Vp_km_s: [5.0, 6.0]
+    Vs_km_s: [2.8, 3.4]
+    pt: [0.04, 0.49]
+    pe: [0.22, 0.33]
+
+  Quartzite:
+    rho_g_cm3: [2.60, 2.70]
+    Vp_km_s: [5.8, 6.5]
+    Vs_km_s: [3.3, 3.8]
+    pt: null
+    pe: null

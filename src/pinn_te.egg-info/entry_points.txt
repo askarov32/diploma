@@ -1,0 +1,3 @@
+[console_scripts]
+pinn-te-eval-direction = pinn_te.cli:eval_direction_entry
+pinn-te-train = pinn_te.cli:train_entry

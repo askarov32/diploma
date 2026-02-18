@@ -1,0 +1,119 @@
+project:
+  name: pinn-thermoelastic
+  seed: 42
+  device: cuda
+  dtype: float32
+domain:
+  x:
+  - 0.0
+  - 2000.0
+  y:
+  - 0.0
+  - 2000.0
+  z:
+  - 0.0
+  - 2000.0
+  t:
+  - 0.0
+  - 1.0
+normalization:
+  x_scale: 2000.0
+  y_scale: 2000.0
+  z_scale: 2000.0
+  t_scale: 1.0
+  u_scale: 1e-3
+  T_scale: 1.0
+materials:
+  database: configs/materials.yaml
+  layers:
+  - name: Granite
+    z_min: 0.0
+    z_max: 800.0
+    props:
+      rho_g_cm3: 2.65
+      Vp_km_s: 5.9
+      Vs_km_s: 3.4
+  - name: Basalt
+    z_min: 800.0
+    z_max: 2000.0
+    props:
+      rho_g_cm3: 3.0
+      Vp_km_s: 6.6
+      Vs_km_s: 3.7
+physics:
+  type: thermoelastic_iso
+  heat:
+    k_W_mK: 2.5
+    C_J_m3K: 2.0e6
+  coupling:
+    gamma_Pa_K: 1.0e9
+    T0_K: 293.15
+source:
+  type: ricker
+  f0_hz: 15.0
+  t0: 0.15
+  location:
+  - 1000.0
+  - 1000.0
+  - 200.0
+  direction:
+  - 1.0
+  - 0.0
+  - 0.0
+  amplitude: 1.0
+  sigma_m: 50.0
+boundary_conditions:
+  mechanical:
+    type: free_surface
+    at: z=0
+  thermal:
+    type: neumann
+    value: 0.0
+initial_conditions:
+  u:
+  - 0.0
+  - 0.0
+  - 0.0
+  ut:
+  - 0.0
+  - 0.0
+  - 0.0
+  T: 293.15
+sampling:
+  interior:
+    n: 20000
+  boundary:
+    n: 4000
+  initial:
+    n: 4000
+  sensors:
+    enabled: true
+    n_receivers: 12
+    receiver_layout: circle
+    radius_m: 600.0
+    z_m: 200.0
+model:
+  type: mlp
+  in_dim: 4
+  out_dim: 4
+  width: 128
+  depth: 6
+  activation: tanh
+training:
+  steps: 100
+  lr: 0.001
+  optimizer: adam
+  scheduler:
+    type: cosine
+    warmup_steps: 1000
+  weights:
+    pde_motion: 1.0
+    pde_heat: 1.0
+    bc: 10.0
+    ic: 10.0
+    data: 1.0
+outputs:
+  run_dir: runs/demo
+  save_every: 2000
+  eval_every: 100
+  run_dir_resolved: runs/demo/20260219-000110

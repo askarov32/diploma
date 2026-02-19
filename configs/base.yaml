@@ -73,11 +73,11 @@ initial_conditions:
 
 sampling:
   interior:
-    n: 5000
+    n: 20000
   boundary:
-    n: 1000
+    n: 4000
   initial:
-    n: 1000
+    n: 4000
   sensors:
     enabled: true
     n_receivers: 12
@@ -94,7 +94,7 @@ model:
   activation: "tanh"
 
 training:
-  steps: 100
+  steps: 500
   lr: 1.0e-3
   optimizer: "adam"
   scheduler:
@@ -110,4 +110,4 @@ training:
 outputs:
   run_dir: "runs/demo"
   save_every: 2000
-  eval_every: 100
+  eval_every: 1000
